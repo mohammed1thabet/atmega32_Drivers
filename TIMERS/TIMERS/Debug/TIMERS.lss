@@ -1,0 +1,244 @@
+
+TIMERS.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000000a8  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  00800060  00000176  2**0
+                  ALLOC, LOAD, DATA
+  2 .comment      0000002f  00000000  00000000  00000176  2**0
+                  CONTENTS, READONLY
+  3 .debug_aranges 00000098  00000000  00000000  000001a5  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_info   00000c69  00000000  00000000  0000023d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_abbrev 0000061b  00000000  00000000  00000ea6  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_line   00000399  00000000  00000000  000014c1  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_frame  0000012c  00000000  00000000  0000185c  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_str    000001c7  00000000  00000000  00001988  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_loc    00000187  00000000  00000000  00001b4f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_ranges 00000078  00000000  00000000  00001cd6  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .text         00000004  0000011a  0000011a  0000016e  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 12 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00001d50  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 13 .text.__vector_11 00000022  000000a8  000000a8  000000fc  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 14 .text.__vector_10 00000022  000000ca  000000ca  0000011e  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 15 .text.main    00000020  000000ec  000000ec  00000140  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 16 .text.Setup_Timer0 00000006  00000114  00000114  00000168  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 17 .text.Setup_Timer0_COM 00000008  0000010c  0000010c  00000160  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 18 .text.Timer0_Compare_set 00000004  0000011e  0000011e  00000172  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 8d 00 	jmp	0x11a	; 0x11a <__bad_interrupt>
+   8:	0c 94 8d 00 	jmp	0x11a	; 0x11a <__bad_interrupt>
+   c:	0c 94 8d 00 	jmp	0x11a	; 0x11a <__bad_interrupt>
+  10:	0c 94 8d 00 	jmp	0x11a	; 0x11a <__bad_interrupt>
+  14:	0c 94 8d 00 	jmp	0x11a	; 0x11a <__bad_interrupt>
+  18:	0c 94 8d 00 	jmp	0x11a	; 0x11a <__bad_interrupt>
+  1c:	0c 94 8d 00 	jmp	0x11a	; 0x11a <__bad_interrupt>
+  20:	0c 94 8d 00 	jmp	0x11a	; 0x11a <__bad_interrupt>
+  24:	0c 94 8d 00 	jmp	0x11a	; 0x11a <__bad_interrupt>
+  28:	0c 94 65 00 	jmp	0xca	; 0xca <__vector_10>
+  2c:	0c 94 54 00 	jmp	0xa8	; 0xa8 <_etext>
+  30:	0c 94 8d 00 	jmp	0x11a	; 0x11a <__bad_interrupt>
+  34:	0c 94 8d 00 	jmp	0x11a	; 0x11a <__bad_interrupt>
+  38:	0c 94 8d 00 	jmp	0x11a	; 0x11a <__bad_interrupt>
+  3c:	0c 94 8d 00 	jmp	0x11a	; 0x11a <__bad_interrupt>
+  40:	0c 94 8d 00 	jmp	0x11a	; 0x11a <__bad_interrupt>
+  44:	0c 94 8d 00 	jmp	0x11a	; 0x11a <__bad_interrupt>
+  48:	0c 94 8d 00 	jmp	0x11a	; 0x11a <__bad_interrupt>
+  4c:	0c 94 8d 00 	jmp	0x11a	; 0x11a <__bad_interrupt>
+  50:	0c 94 8d 00 	jmp	0x11a	; 0x11a <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d8 e0       	ldi	r29, 0x08	; 8
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_copy_data>:
+  60:	e4 e5       	ldi	r30, 0x54	; 84
+  62:	f0 e0       	ldi	r31, 0x00	; 0
+  64:	40 e0       	ldi	r20, 0x00	; 0
+  66:	17 c0       	rjmp	.+46     	; 0x96 <__do_clear_bss+0x8>
+  68:	b5 91       	lpm	r27, Z+
+  6a:	a5 91       	lpm	r26, Z+
+  6c:	35 91       	lpm	r19, Z+
+  6e:	25 91       	lpm	r18, Z+
+  70:	05 91       	lpm	r16, Z+
+  72:	07 fd       	sbrc	r16, 7
+  74:	0c c0       	rjmp	.+24     	; 0x8e <__do_clear_bss>
+  76:	95 91       	lpm	r25, Z+
+  78:	85 91       	lpm	r24, Z+
+  7a:	ef 01       	movw	r28, r30
+  7c:	f9 2f       	mov	r31, r25
+  7e:	e8 2f       	mov	r30, r24
+  80:	05 90       	lpm	r0, Z+
+  82:	0d 92       	st	X+, r0
+  84:	a2 17       	cp	r26, r18
+  86:	b3 07       	cpc	r27, r19
+  88:	d9 f7       	brne	.-10     	; 0x80 <__do_copy_data+0x20>
+  8a:	fe 01       	movw	r30, r28
+  8c:	04 c0       	rjmp	.+8      	; 0x96 <__do_clear_bss+0x8>
+
+0000008e <__do_clear_bss>:
+  8e:	1d 92       	st	X+, r1
+  90:	a2 17       	cp	r26, r18
+  92:	b3 07       	cpc	r27, r19
+  94:	e1 f7       	brne	.-8      	; 0x8e <__do_clear_bss>
+  96:	e4 35       	cpi	r30, 0x54	; 84
+  98:	f4 07       	cpc	r31, r20
+  9a:	31 f7       	brne	.-52     	; 0x68 <__do_copy_data+0x8>
+  9c:	0e 94 76 00 	call	0xec	; 0xec <main>
+  a0:	0c 94 52 00 	jmp	0xa4	; 0xa4 <_exit>
+
+000000a4 <_exit>:
+  a4:	f8 94       	cli
+
+000000a6 <__stop_program>:
+  a6:	ff cf       	rjmp	.-2      	; 0xa6 <__stop_program>
+
+Disassembly of section .text:
+
+0000011a <__bad_interrupt>:
+ 11a:	0c 94 00 00 	jmp	0	; 0x0 <__TEXT_REGION_ORIGIN__>
+
+Disassembly of section .text.__vector_11:
+
+000000a8 <__vector_11>:
+#include "..\..\dio2\dio2\\DIO_Conf.h"
+#include "Timers_Interface.h"
+#include <avr/interrupt.h>
+int i=0;
+ISR (TIMER0_OVF_vect)    // Timer1 ISR
+{
+  a8:	1f 92       	push	r1
+  aa:	0f 92       	push	r0
+  ac:	0f b6       	in	r0, 0x3f	; 63
+  ae:	0f 92       	push	r0
+  b0:	11 24       	eor	r1, r1
+  b2:	8f 93       	push	r24
+	
+	DDRC=0xff;
+  b4:	8f ef       	ldi	r24, 0xFF	; 255
+  b6:	84 bb       	out	0x14, r24	; 20
+	PORTC^=0xff;
+  b8:	85 b3       	in	r24, 0x15	; 21
+  ba:	80 95       	com	r24
+  bc:	85 bb       	out	0x15, r24	; 21
+	
+}
+  be:	8f 91       	pop	r24
+  c0:	0f 90       	pop	r0
+  c2:	0f be       	out	0x3f, r0	; 63
+  c4:	0f 90       	pop	r0
+  c6:	1f 90       	pop	r1
+  c8:	18 95       	reti
+
+Disassembly of section .text.__vector_10:
+
+000000ca <__vector_10>:
+
+ISR (TIMER0_COMP_vect)
+{
+  ca:	1f 92       	push	r1
+  cc:	0f 92       	push	r0
+  ce:	0f b6       	in	r0, 0x3f	; 63
+  d0:	0f 92       	push	r0
+  d2:	11 24       	eor	r1, r1
+  d4:	8f 93       	push	r24
+	
+		DDRD=0xff;
+  d6:	8f ef       	ldi	r24, 0xFF	; 255
+  d8:	81 bb       	out	0x11, r24	; 17
+		PORTD^=0xff;
+  da:	82 b3       	in	r24, 0x12	; 18
+  dc:	80 95       	com	r24
+  de:	82 bb       	out	0x12, r24	; 18
+		
+	
+}
+  e0:	8f 91       	pop	r24
+  e2:	0f 90       	pop	r0
+  e4:	0f be       	out	0x3f, r0	; 63
+  e6:	0f 90       	pop	r0
+  e8:	1f 90       	pop	r1
+  ea:	18 95       	reti
+
+Disassembly of section .text.main:
+
+000000ec <main>:
+int main(void)
+{
+	//DIO_Pin_Init(DIOB,OUTPUT,3);
+	uint32_t j=0;
+	DDRB=0b01000;
+  ec:	88 e0       	ldi	r24, 0x08	; 8
+  ee:	87 bb       	out	0x17, r24	; 23
+	*((uint8_t*)(0x5F))|=1<<7;
+  f0:	8f b7       	in	r24, 0x3f	; 63
+  f2:	80 68       	ori	r24, 0x80	; 128
+  f4:	8f bf       	out	0x3f, r24	; 63
+	Setup_Timer0(T0_INTERNAL_NO_PRESCALAR, T0_CTC_MODE);
+  f6:	68 e0       	ldi	r22, 0x08	; 8
+  f8:	81 e0       	ldi	r24, 0x01	; 1
+  fa:	0e 94 8a 00 	call	0x114	; 0x114 <Setup_Timer0>
+	Setup_Timer0_COM(T0_COM_TOGGLE);
+  fe:	80 e1       	ldi	r24, 0x10	; 16
+ 100:	0e 94 86 00 	call	0x10c	; 0x10c <Setup_Timer0_COM>
+	//Setup_Timer0_PWM(50,T0_PWM_NOINVERT);
+	Timer0_Compare_set(127);
+ 104:	8f e7       	ldi	r24, 0x7F	; 127
+ 106:	0e 94 8f 00 	call	0x11e	; 0x11e <Timer0_Compare_set>
+ 10a:	ff cf       	rjmp	.-2      	; 0x10a <main+0x1e>
+
+Disassembly of section .text.Setup_Timer0:
+
+00000114 <Setup_Timer0>:
+	if((Duty_Cycle>=0)&&(Duty_Cycle<=100))
+	{
+		REG_OCR0=(uint8_t)((Duty_Cycle/100.0)*255.0);
+	}
+	
+}
+ 114:	86 2b       	or	r24, r22
+ 116:	83 bf       	out	0x33, r24	; 51
+ 118:	08 95       	ret
+
+Disassembly of section .text.Setup_Timer0_COM:
+
+0000010c <Setup_Timer0_COM>:
+ 10c:	93 b7       	in	r25, 0x33	; 51
+ 10e:	89 2b       	or	r24, r25
+ 110:	83 bf       	out	0x33, r24	; 51
+ 112:	08 95       	ret
+
+Disassembly of section .text.Timer0_Compare_set:
+
+0000011e <Timer0_Compare_set>:
+
+
+void Timer0_Compare_set(uint8_t Compare_match)
+{
+	REG_OCR0=Compare_match;
+ 11e:	8c bf       	out	0x3c, r24	; 60
+ 120:	08 95       	ret
